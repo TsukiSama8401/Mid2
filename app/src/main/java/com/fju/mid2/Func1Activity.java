@@ -19,7 +19,7 @@ public class Func1Activity extends AppCompatActivity {
         Random random = new Random();
         int i = random.nextInt(6) + 1;
         new AlertDialog.Builder(this)
-                .setMessage("點數" + i)
+                .setMessage("點數:" + i)
                 .show();
     }
 

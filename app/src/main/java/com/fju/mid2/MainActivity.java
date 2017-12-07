@@ -5,8 +5,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static final int FUNC_LOGIN = 1;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == FUNC_LOGIN){
+            Toast.makeText(this, "特殊功能", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view){
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this,Func3Activity.class);
-                startActivity(intent);
+                startActivityForResult(intent , FUNC_LOGIN);
             }
         });
         Button button4 = (Button) findViewById(R.id.button4);
@@ -72,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view){
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this,Func7Activity.class);
-                startActivity(intent);
+                startActivityForResult(intent , FUNC_LOGIN);
             }
         });
         Button button8 = (Button) findViewById(R.id.button8);
@@ -81,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view){
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this,Func8Activity.class);
-                startActivity(intent);
+                startActivityForResult(intent , FUNC_LOGIN);
             }
         });
     }
